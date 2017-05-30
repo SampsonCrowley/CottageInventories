@@ -1,12 +1,10 @@
 <div class="row">
   <% flash.each do |type, msg| %>
     <div class="alert alert-block alert-<%= type %>">
+      <% msg = [msg] if msg.is_a? String%>
       <% msg.each do |m| %>
         <p><%= m %></p>
       <% end %>
     </div>
-
   <% end %>
 </div>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
