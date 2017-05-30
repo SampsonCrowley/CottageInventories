@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CottageSkisInventory</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class="<%= controller_name %> <%= action_name %>">
+  <%= render partial: 'shared/modal' %>
+  <%= render partial: 'shared/navbar' %>
+  <main class="container-fluid">
+    <%= render partial: 'shared/flashes' %>
+
+    <p ></p>
+    <%= yield %>
+  </main>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</body>
+</html>

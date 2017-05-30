@@ -1,0 +1,11 @@
+<h1>View Receipts:</h1>
+
+<h5><%= link_to "New Receipt", new_receipt_path, class: 'btn btn-primary' %></h5>
+
+<i class="text-muted">
+  <%= "No receipts to show" unless @receipts.size > 0 %>
+</i>
+
+<% @receipts.each do |receipt| %>
+  <%= render partial: 'receipt', locals: {receipt: receipt} %>
+<% end %>

@@ -1,0 +1,35 @@
+<%= form.fields_for item do |fi| %>
+<div class="form-group">
+  <%= fi.label :name %>
+  <%= fi.text_field :name, class: 'form-control', placeholder: 'Receipt Item Name', 'aria-describedby' => "#{fi.object_name}NameHelp" %>
+  <small id="<%= "#{fi.object_name}NameHelp" %>" class="form-text text-muted">Enter the name of the item.</small>
+</div>
+<div class="row">
+  <div class="form-group col-md">
+    <%= fi.label :category %>
+    <%= fi.collection_select :category_id, Category.all, :id, :name, {}, class: 'form-control', 'aria-describedby' => "#{fi.object_name}CategoryHelp" %>
+    <small id="<%= "#{fi.object_name}CategoryHelp" %>" class="form-text text-muted">Enter the Store Name</small>
+  </div>
+  <div class="form-group col-md">
+    <%= fi.label :cost %>
+    <%= fi.number_field :cost, class: 'form-control', placeholder: 'Cost (per measurement)', 'aria-describedby' => "#{fi.object_name}CostHelp" %>
+    <small id="<%= "#{fi.object_name}CostHelp" %>" class="form-text text-muted">Enter cost of an individual piece of this item (e.g. price per meter).</small>
+  </div>
+  <div class="form-group col-md">
+    <%= fi.label :quantity %>
+    <%= fi.number_field :quantity, min: 1, class: 'form-control', placeholder: 'Item Quantity', 'aria-describedby' => "#{fi.object_name}QuantityHelp" %>
+    <small id="<%= "#{fi.object_name}QuantityHelp" %>" class="form-text text-muted">e.g. 20 meters, 5 items, etc..</small>
+  </div>
+  <div class="form-group col-md">
+    <%= fi.label :measurement %>
+    <%= fi.select :measurement, [['Per Item', 'i'],['Per Meter', 'm'],['Per Oz', 'o']], {}, class: 'form-control', 'aria-describedby' => "#{fi.object_name}MeasurementHelp" %>
+    <small id="<%= "#{fi.object_name}MeasurementHelp" %>" class="form-text text-muted">Measuremnt Classification</small>
+  </div>
+</div>
+  <div class="form-group">
+    <%= fi.label :description %>
+    <%= fi.text_area :description, rows: 4, class: 'form-control', placeholder: 'Item Description', 'aria-describedby' => "#{fi.object_name}DescriptionHelp" %>
+    <small id="<%= "#{fi.object_name}DescriptionHelp" %>" class="form-text text-muted">Enter a brief description of the purchased item.</small>
+  </div>
+  <hr>
+<% end %>

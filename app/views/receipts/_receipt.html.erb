@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col">
+    <%= receipt.created_at.to_date %>
+  </div>
+  <div class="col">
+    <span class="label">Vendor:</span>
+    <%= receipt.vendor %>
+  </div>
+  <div class="col">
+    <span class="label">Total:</span>
+    $<%= receipt.total %>
+  </div>
+  <div class="col">
+    <span class="label">Tax:</span>
+    $<%= receipt.tax %>
+  </div>
+  <div class="col">
+    <span class="label">Description:</span>
+    <%= receipt.description %>
+  </div>
+  <div class="col">
+    <%= link_to receipt do %>
+    <%= image_tag(receipt.hardcopy.url(:thumb)) %>
+    <% end %>
+  </div>
+</div>
+<hr>

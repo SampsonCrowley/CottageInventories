@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col">
+    <span class="label">Item Category:</span>
+    <%= item.category.name %>
+  </div>
+  <div class="col">
+    <span class="label">Item Name:</span>
+    <%= item.name %>
+  </div>
+  <div class="col">
+    <span class="label">Item Description:</span>
+    <%= item.description %>
+  </div>
+  <div class="col">
+    <span class="label">Original Quantity:</span>
+    <%= item.quantity %>
+  </div>
+  <div class="col">
+    <span class="label">Available Quantity:</span>
+    <%= item.quantity - item.used %>
+  </div>
+</div>
+<hr>

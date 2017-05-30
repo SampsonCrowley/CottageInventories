@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receipt: one
+  category: one
+  sale: one
+  name: MyString
+  description: MyText
+  cost: 1.5
+  measurement: MyString
+
+two:
+  receipt: two
+  category: two
+  sale: two
+  name: MyString
+  description: MyText
+  cost: 1.5
+  measurement: MyString
