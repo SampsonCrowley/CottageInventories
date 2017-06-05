@@ -1,2 +1,10 @@
-<h1>Sales#show</h1>
-<p>Find me in app/views/sales/show.html.erb</p>
+<h1>Sale on: <%= @sale.created_at.to_date %></h1>
+
+<h3>Customer: <%= @sale.name %></h3>
+<h3>Description:</h3>
+<p><%= @sale.description %></p>
+<hr>
+<h3>Items Used</h3>
+<% @sale.item_sales.each do |item_sold| %>
+  <%= render partial: 'shared/item', locals: {item: item_sold.item, sold: item_sold.used } %>
+<% end %>

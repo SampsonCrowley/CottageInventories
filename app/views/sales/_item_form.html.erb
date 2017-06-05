@@ -1,0 +1,15 @@
+<%= form.fields_for :item_sales do |fis| %>
+  <div class="row">
+    <div class="form-group col-md">
+      <%= fis.label :item %>
+      <%= fis.collection_select :item_id, Item.available, :id, :name_and_measurement, {prompt: true}, class: 'form-control', 'aria-describedby' => "#{fis.object_name}ItemHelp" %>
+      <small id="<%= "#{fis.object_name}ItemHelp" %>" class="form-text text-muted">Select the Item that was Used</small>
+    </div>
+    <div class="form-group col-md">
+      <%= fis.label :used %>
+      <%= fis.number_field :used, min: 1, class: 'form-control', placeholder: 'Item Quantity', 'aria-describedby' => "#{fis.object_name}UsedHelp" %>
+      <small id="<%= "#{fis.object_name}UsedHelp" %>" class="form-text text-muted">e.g. 20 meters, 5 items, etc..</small>
+    </div>
+  </div>
+  <hr>
+<% end %>

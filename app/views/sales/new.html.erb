@@ -1,2 +1,28 @@
-<h1>Sales#new</h1>
-<p>Find me in app/views/sales/new.html.erb</p>
+<%= form_for @sale do |f| %>
+  <%= f.submit 'Create Sale', class: 'btn btn-block btn-primary' %>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Sale Details</h3>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Customer Name', 'aria-describedby' => 'receiptVendorHelp' %>
+        <small id="receiptVendorHelp" class="form-text text-muted">Enter the Customer's Full Name.</small>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 4, class: 'form-control', placeholder: 'Sale Description', 'aria-describedby' => 'receiptDescriptionHelp' %>
+        <small id="receiptDescriptionHelp" class="form-text text-muted">Enter a description of the sold item.</small>
+      </div>
+      <div class="form-group">
+        <%= f.label :total %>
+        <%= f.number_field :total, step: "any", class: 'form-control', placeholder: 'Total Charged', 'aria-describedby' => 'receiptTaxHelp' %>
+        <small id="receiptTaxHelp" class="form-text text-muted">Enter the total the customer was charged.</small>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Used Inventory</h3>
+      <%= render partial: 'item_form', locals: {form: f} %>
+    </div>
+</div>
+<% end %>

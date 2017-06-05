@@ -1,23 +1,23 @@
-<div class="row">
-  <div class="col">
-    <span class="label">Item Category:</span>
-    <%= item.category.name %>
-  </div>
-  <div class="col">
-    <span class="label">Item Name:</span>
-    <%= item.name %>
-  </div>
-  <div class="col">
-    <span class="label">Item Description:</span>
-    <%= item.description %>
-  </div>
-  <div class="col">
-    <span class="label">Original Quantity:</span>
-    <%= item.quantity %>
-  </div>
-  <div class="col">
-    <span class="label">Available Quantity:</span>
-    <%= item.quantity - item.used %>
+<div class="card mb-2">
+  <div class="card-block">
+    <h4 class="card-title"><%= item.name %></h4>
+    <h6 class="card-subtitle mb-2 text-muted"><%= item.category.name %></h6>
+    <p class="card-text"><%= item.description %></p>
+    <div class="row">
+      <div class="col">
+        <span class="label">Original Quantity:</span>
+        <%= "#{item.quantity}#{item.measurement_text}" %>
+      </div>
+      <% if local_assigns[:sold] %>
+      <div class="col">
+        <span class="label">Used In this Sale</span>
+        <%= "#{sold}#{item.measurement_text}" %>
+      </div>
+      <% end %>
+      <div class="col">
+        <span class="label">Available Quantity:</span>
+        <%= "#{item.quantity - item.used}#{item.measurement_text}" %>
+      </div>
+    </div>
   </div>
 </div>
-<hr>

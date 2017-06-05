@@ -12,7 +12,7 @@
   </div>
   <div class="form-group col-md">
     <%= fi.label :cost %>
-    <%= fi.number_field :cost, class: 'form-control', placeholder: 'Cost (per measurement)', 'aria-describedby' => "#{fi.object_name}CostHelp" %>
+    <%= fi.number_field :cost, step: "any", class: 'form-control', placeholder: 'Cost (per measurement)', 'aria-describedby' => "#{fi.object_name}CostHelp" %>
     <small id="<%= "#{fi.object_name}CostHelp" %>" class="form-text text-muted">Enter cost of an individual piece of this item (e.g. price per meter).</small>
   </div>
   <div class="form-group col-md">
@@ -22,7 +22,7 @@
   </div>
   <div class="form-group col-md">
     <%= fi.label :measurement %>
-    <%= fi.select :measurement, [['Per Item', 'i'],['Per Meter', 'm'],['Per Oz', 'o']], {}, class: 'form-control', 'aria-describedby' => "#{fi.object_name}MeasurementHelp" %>
+    <%= fi.select :measurement, Item.measurements_for_select, {}, class: 'form-control', 'aria-describedby' => "#{fi.object_name}MeasurementHelp" %>
     <small id="<%= "#{fi.object_name}MeasurementHelp" %>" class="form-text text-muted">Measuremnt Classification</small>
   </div>
 </div>

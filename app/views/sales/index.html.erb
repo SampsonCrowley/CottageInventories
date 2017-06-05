@@ -1,2 +1,18 @@
-<h1>Sales#index</h1>
-<p>Find me in app/views/sales/index.html.erb</p>
+<h1>Cottage Skis Sales</h1>
+<%= link_to "New Sale", new_sale_path, class: "btn btn-primary" %>
+<table class="table">
+  <thead>
+    <th>Date</th>
+    <th>Customer</th>
+    <th>Total</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @sales.each do |sale| %>
+      <td><%= sale.created_at.to_date %></td>
+      <td><%= sale.name %></td>
+      <td>$<%= sale.total %></td>
+      <td><%= link_to "View Details", sale %></td>
+    <% end %>
+  </tbody>
+</table>

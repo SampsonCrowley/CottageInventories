@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def create(record)
+    def create(record, build_method = nil)
       if record.save
         after_create_path(record)
       else
@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
         record.errors.full_messages.each do |error|
           flash.now[:danger] << error
         end
+        build_method
         render :new
       end
     end
